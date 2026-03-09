@@ -1,0 +1,113 @@
+{
+  "skill_name": "playwright-automation-framework-generator",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Crea un framework de Playwright para https://www.saucedemo.com/",
+      "expected_output": "Flow A (E2E). Full framework for SauceDemo: playwright.config.ts with trace on-first-retry, .env.example with BASE_URL/TEST_USER_EMAIL/TEST_USER_PASSWORD, .gitignore, GitHub Actions workflow with artifact upload steps, BasePage.ts, POMs for login/inventory/cart/checkout pages using user-facing locators only (no CSS selectors), spec files with @smoke and @regression tags and web-first assertions, fixtures/index.ts with auth fixture using storageState, global-setup.ts, helpers.ts, test-data.ts. No feature files or step definitions.",
+      "assertions": [
+        {
+          "text": "playwright.config.ts exists with trace: 'on-first-retry'",
+          "type": "file_exists_with_content"
+        },
+        {
+          "text": ".github/workflows/playwright.yml exists (search recursively under project folder) with upload-artifact steps",
+          "type": "file_exists_with_content"
+        },
+        {
+          "text": "e2e/pages/BasePage.ts exists with navigate() using waitForLoadState",
+          "type": "file_exists_with_content"
+        },
+        {
+          "text": "e2e/fixtures/index.ts exports a custom test and expect",
+          "type": "file_exists_with_content"
+        },
+        {
+          "text": "global-setup.ts exists with storageState auth pattern",
+          "type": "file_exists_with_content"
+        },
+        {
+          "text": "POMs do NOT contain raw CSS selectors like page.locator('.class')",
+          "type": "code_quality"
+        },
+        {
+          "text": "POMs use user-facing locators: getByRole, getByLabel, getByText, or getByPlaceholder",
+          "type": "code_quality"
+        },
+        {
+          "text": "Spec files use @smoke or @regression tags",
+          "type": "code_quality"
+        },
+        {
+          "text": "Spec files use web-first assertions: await expect(locator).toBeVisible()",
+          "type": "code_quality"
+        },
+        {
+          "text": ".env.example contains BASE_URL, TEST_USER_EMAIL, TEST_USER_PASSWORD",
+          "type": "file_exists_with_content"
+        },
+        {
+          "text": "A LoginPage.ts POM exists with methods for entering credentials",
+          "type": "file_exists_with_content"
+        },
+        {
+          "text": "No .feature files exist (pure E2E, not BDD)",
+          "type": "code_quality"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "Genera un framework de Playwright con BDD y Cucumber para https://www.saucedemo.com/",
+      "expected_output": "Flow B (BDD). Framework using playwright-bdd: playwright.config.ts with defineBddConfig pointing to features/ and step-definitions/, package.json with playwright-bdd dependency and bdd:generate script, feature files in Gherkin for login/inventory/cart flows with @smoke and @regression tags on scenarios, step definitions using createBdd() with user-facing locators only, POMs in e2e/pages/, support/hooks.ts, support/world.ts, global-setup.ts with storageState, GitHub Actions workflow with bdd:generate step before running tests and artifact upload.",
+      "assertions": [
+        {
+          "text": "playwright.config.ts exists with defineBddConfig referencing features/ and step-definitions/",
+          "type": "file_exists_with_content"
+        },
+        {
+          "text": "package.json includes playwright-bdd dependency",
+          "type": "file_exists_with_content"
+        },
+        {
+          "text": "package.json has a bdd:generate script",
+          "type": "file_exists_with_content"
+        },
+        {
+          "text": "At least 1 .feature file exists with valid Gherkin scenarios",
+          "type": "file_exists_with_content"
+        },
+        {
+          "text": ".feature files use @smoke or @regression tags on scenarios",
+          "type": "code_quality"
+        },
+        {
+          "text": "At least 1 .steps.ts file exists using createBdd()",
+          "type": "file_exists_with_content"
+        },
+        {
+          "text": "support/hooks.ts exists",
+          "type": "file_exists_with_content"
+        },
+        {
+          "text": "e2e/pages/BasePage.ts exists",
+          "type": "file_exists_with_content"
+        },
+        {
+          "text": "Step definitions do NOT use CSS selectors like page.locator('.class')",
+          "type": "code_quality"
+        },
+        {
+          "text": ".github/workflows/playwright.yml exists (search recursively) with bdd:generate step and artifact upload",
+          "type": "file_exists_with_content"
+        },
+        {
+          "text": "global-setup.ts exists with storageState for SauceDemo login",
+          "type": "file_exists_with_content"
+        }
+      ],
+      "files": []
+    }
+  ]
+}
