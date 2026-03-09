@@ -1,6 +1,6 @@
 # Playwright Automation Framework Generator — Claude Skill
 
-A Claude skill that scaffolds a complete, production-ready Playwright TypeScript test automation framework from scratch, following QA engineering best practices.
+A Claude skill that scaffolds a complete Playwright TypeScript test automation framework from scratch, following QA engineering best practices.
 
 ## What it generates
 
