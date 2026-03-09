@@ -84,7 +84,7 @@ playwright-automation-framework-generator/
 
 ## Benchmark
 
-Evaluated against [SauceDemo](https://www.saucedemo.com/) — a standard Playwright demo app with login, inventory, cart and checkout flows.
+Evaluated against [SauceDemo](https://www.saucedemo.com/) — a standard demo app with login, inventory, cart and checkout flows.
 
 | | With skill | Without skill |
 |---|---|---|
